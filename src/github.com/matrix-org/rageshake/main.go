@@ -45,10 +45,22 @@ type config struct {
 	// External URI to /api
 	APIPrefix string `yaml:"api_prefix"`
 
+	// Defines the service to use
+	Service string `yaml:"service"`
+
+	// Create a GitHub issue
 	// A GitHub personal access token, to create a GitHub issue for each report.
 	GithubToken string `yaml:"github_token"`
-
+	// Name of the app: name of the owner of the repository / name of the repository
 	GithubProjectMappings map[string]string `yaml:"github_project_mappings"`
+
+	// Create a YouTrack issue
+	// A YouTrack personal access token, to create a YouTrack issue for each report.
+	YouTrackToken string `yaml:"youtrack_token"`
+	// Url of the YouTrack server
+	YouTrackUrl string `yaml:"youtrack_url"`
+	// Is the name shortname of the project in which an issue is created
+	YouTrackProject string `yaml:"youtrack_project"`
 }
 
 func basicAuth(handler http.Handler, username, password, realm string) http.Handler {
